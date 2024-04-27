@@ -1,14 +1,22 @@
-<p style="color: green"><%= notice %></p>
 
-<h1>Gardens</h1>
 
-<div id="gardens">
-  <% @gardens.each do |garden| %>
-    <%= render garden %>
-    <p>
-      <%= link_to "Show this garden", garden %>
-    </p>
-  <% end %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= asset_path("garden.jpg") %>');">
+  <div class="container">
+    <h1>Gardens</h1>
+  </div>
 </div>
 
+
+
+<div class="container">
+  <div class="cards my-5">
+  <% @gardens.each do |garden| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= garden.banner_url %>)">
+        <%= garden.name  %>
+        <%= link_to "Show this garden", garden %>
+      </div>
+    <% end %>
+  </div>
+
 <%= link_to "New garden", new_garden_path %>
+</div>
